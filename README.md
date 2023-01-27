@@ -1,1 +1,1 @@
-# Bice-Templates
+# Bicep-Templates
