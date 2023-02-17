@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "planName": {
+      "value": "petshop-appplan"
+    },
+    "planSku": {
+      "value": "S1"
+    },
+    "productwebSiteName": {
+      "value": "product-webapp"
+    },
+    "shoppingwebSiteName": {
+      "value": "shopping-webapp"
+    },
+    "frontwebSiteName": {
+      "value": "petshop-frontend-webapp"
+    },
+    "startFWIpAddress": {
+      "value": "127.0.0.1"
+    },
+    "endFWIpAddress": {
+      "value": "127.0.0.1"
+    },
+    "databaseName": {
+      "value": "petshop-db"
+    },
+    "sqlServerName": {
+      "value": "petshop-sql"
+    },
+    "sqlAdministratorLogin": {
+      "value": "petshopowner"
+    },
+    "sqlAdministratorLoginPassword": {
+      "value": "Password123a%12"
+    }
+  }
+}
