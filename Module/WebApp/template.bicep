@@ -1,6 +1,7 @@
 @description('Name of the web app to be created')
 param webSiteName string
 
+
 param location string = resourceGroup().location
 
 @description('App Service Plan ID')

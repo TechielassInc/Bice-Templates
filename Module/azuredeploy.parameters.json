@@ -8,14 +8,17 @@
     "planSku": {
       "value": "S1"
     },
+    "sku": {
+      "value": "Standard"
+    },
     "productwebSiteName": {
-      "value": "product-webapp"
+      "value": "techielass-product-webapp"
     },
     "shoppingwebSiteName": {
-      "value": "shopping-webapp"
+      "value": "techielass-shopping-webapp"
     },
     "frontwebSiteName": {
-      "value": "petshop-frontend-webapp"
+      "value": "techielass-petshop-frontend-webapp"
     },
     "startFWIpAddress": {
       "value": "127.0.0.1"
