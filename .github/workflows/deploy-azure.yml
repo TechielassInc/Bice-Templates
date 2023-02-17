@@ -1,0 +1,39 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Azure Bicep Deployment
+
+# Controls when the workflow will run
+on:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+ 
+  AzureBicepDeploy:
+    name: 'AzureBicepDeploy'
+    runs-on: ubuntu-latest
+    env:
+      ResourceGroupName: techielassinc-bicep-rg
+      ResourceGroupLocation: "uksouth"
+    environment: production
+ 
+    steps:
+ 
+    - uses: actions/checkout@v3.3.0
+
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+ 
+    - name: Azure Bicep Build
+      run: |
+        az bicep build --file Module/main.bicep
+ 
+    - name: Az CLI Create Resource Group
+      uses: Azure/CLI@v1.0.7
+      with:
+        inlineScript: |
+          #!/bin/bash
+          az group create --name ${{ env.ResourceGroupName }} --location ${{ env.ResourceGroupLocation }}
+ 
