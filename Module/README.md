@@ -1,4 +1,4 @@
-# Deployment instructions
+# Deployment instructions - PowerShell
 
 Step 1: Create a new Resource Group - with PowerShell
 
@@ -10,6 +10,20 @@ Step 2: Deploy template - with PowerShell
 
 ```powershell
 New-AzResourceGroupDeployment -Name "Templatedeployment" -ResourceGroupName "Sarah-RG" -TemplateFile main.bicep -planName "petshop-appplan" -planSku S1 -sku Standard -productwebSiteName "product-webapp" -shoppingwebSiteName "shopping-webapp" -frontwebSiteName "petshop-frontend-webapp" -startFWIpAddress "127.0.0.1" -endFWIpAddress "127.0.0.1" -databaseName "petshop-db" -sqlServerName "petshop-sql" -sqlAdministratorLogin "petshopowner" -sqlAdministratorLoginPassword "Password123a%12"
+```
+
+# Deployment instructions - Azure CLI with Parameters file
+
+Step 1: Create a new Resource Group - with Azure CLI
+
+```cli
+az group create --name exampleRG --location "UK South"
+```
+
+Step 2: Deploy template - with Azure CLI
+
+```cli
+az deployment group create --resource-group exampleRG --template-file main.bicep --parameters azuredeploy.parameters.json
 ```
 
 
