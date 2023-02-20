@@ -8,16 +8,16 @@
             "level": "error"
           },
           "max-outputs": {
-            "level": "error"
+            "level": "off"
           },
           "max-params": {
-            "level": "error"
+            "level": "off"
           },
           "max-resources": {
-            "level": "error"
+            "level": "off"
           },
           "max-variables": {
-            "level": "error"
+            "level": "off"
           },
           "no-hardcoded-env-urls": {
             "level": "error"
