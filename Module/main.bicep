@@ -71,6 +71,7 @@ module shoppingcartweb 'WebApp/template.bicep' = {
 module database 'SQLServer/template.bicep' = {
   name:'sqlserver'
   params:{
+    location:location
     startFWIpAddress:startFWIpAddress
     endFWIpAddress:endFWIpAddress    
     databaseName:databaseName
