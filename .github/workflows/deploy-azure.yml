@@ -10,7 +10,7 @@ on:
 
 jobs:
  
-  AzureBicepDeploy:
+  Lint:
     name: 'AzureBicepDeploy'
     runs-on: ubuntu-latest
     env:
@@ -19,20 +19,29 @@ jobs:
     environment: production
  
     steps:
- 
     - uses: actions/checkout@v3.3.0
 
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
- 
     - name: Run Bicep linter
       run: az bicep build --file ./Module/main.bicep
  
-    - name: Az CLI Create Resource Group
-      uses: Azure/CLI@v1.0.7
+  Validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: azure/login@v1
+      name: Sign in to Azure
       with:
-        inlineScript: |
-          #!/bin/bash
-          az group create --name ${{ env.ResourceGroupName }} --location ${{ env.ResourceGroupLocation }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - uses: azure/arm-deploy@v1
+      name: Run preflight validation
+      with:
+      deploymentName: ${{ github.run_number }}
+      resourceGroupName: ${{ env.RESOURCEGROUP_NAME }}
+      template: ./module/main.bicep
+      parameters: environmentType=${{ env.ENVIRONMENT }}
+      deploymentMode: Validate
+
+
+
+
  
