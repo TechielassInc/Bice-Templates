@@ -26,10 +26,6 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
  
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
     - name: Run Bicep linter
       run: az bicep build --file module/main.bicep
  
