@@ -10,7 +10,7 @@ permissions:
 
 env:
   AZURE_RESOURCEGROUP_NAME: Bicep-Template
-  AZURE_LOCATION: uk_south
+  AZURE_LOCATION: uksouth
   ENVIRONMENT_TYPE: Test
 
 jobs:
