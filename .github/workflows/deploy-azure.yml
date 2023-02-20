@@ -30,11 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
     - uses: azure/login@v1
-      name: Sign in to Azure
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-      name: Run preflight validation
       with:
         deploymentName: ${{ github.run_number }}
         resourceGroupName: ${{ env.RESOURCEGROUPNAME }}
@@ -47,11 +46,9 @@ jobs:
     needs: [lint, validate]
     steps:
     - uses: azure/login@v1
-      name: Sign in to Azure
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - uses: azure/arm-deploy@v1
-      name: Deploy website
       with:
         failOnStdErr: false
         deploymentName: ${{ github.run_number }}
