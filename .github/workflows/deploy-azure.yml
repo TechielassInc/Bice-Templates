@@ -24,22 +24,6 @@ jobs:
     - name: Run Bicep linter
       run: az bicep build --file ./Module/main.bicep
  
-  Validate:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: azure/login@v1
-      name: Sign in to Azure
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - uses: azure/arm-deploy@v1
-      name: Run preflight validation
-      with:
-      deploymentName: ${{ github.run_number }}
-      resourceGroupName: ${{ env.RESOURCEGROUP_NAME }}
-      template: ./module/main.bicep
-      parameters: environmentType=${{ env.ENVIRONMENT }}
-      deploymentMode: Validate
 
 
 
