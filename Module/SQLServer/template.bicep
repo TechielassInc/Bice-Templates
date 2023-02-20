@@ -12,9 +12,9 @@ param sqlServerName string
 // -----------------------------------------
 var minTlsVersion = '1.2' // Should always be latest supported TLS version
 var transparentDataEncryption = 'Enabled' // Why would you ever disable this?
-@secure()
+#disable-next-line secure-secrets-in-params   // Doesn't contain a secret
 param sqlAdministratorLogin string
-@secure()
+#disable-next-line secure-secrets-in-params   // Doesn't contain a secret
 param sqlAdministratorLoginPassword string
 
 
