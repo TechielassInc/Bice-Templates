@@ -34,7 +34,6 @@ jobs:
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-      with:
         deploymentName: ${{ github.run_number }}
         resourceGroupName: ${{ env.RESOURCEGROUPNAME }}
         template: ./module/main.bicep
@@ -49,7 +48,6 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - uses: azure/arm-deploy@v1
-      with:
         failOnStdErr: false
         deploymentName: ${{ github.run_number }}
         resourceGroupName: ${{ env.RESOURCEGROUPNAME }}
