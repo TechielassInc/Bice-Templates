@@ -39,7 +39,7 @@ jobs:
         parameters: ./Module/azuredeploy.parameters.json
         deploymentMode: Validate
 
-    preview:
+  preview:
     runs-on: ubuntu-latest
     needs: [lint, validate]
     steps:
